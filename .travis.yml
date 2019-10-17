@@ -12,4 +12,4 @@ before_install:
 
 # NOTE: the script below is specific for create-react-app and jest
 script:
-  - docker run -e CI=true willertravassos/nodejs-react npm run test
+  - docker run willertravassos/docker-react npm run test -- --coverage
