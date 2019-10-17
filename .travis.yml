@@ -12,4 +12,19 @@ before_install:
 
 # NOTE: the script below is specific for create-react-app and jest
 script:
-  - docker run willertravassos/docker-react npm run test -- --coverage
+  - docker run -e CI=true willertravassos/docker-react npm run test
+
+# Here we deploy to AWS
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-us-east-2-272455679161"
+  bucket_path: "docker-react"
+  on:
+    branch: master
+  access_key_id:
+    secure: "$AwsAccessKey"
+  secret_access_key:
+    secure: "AwsSecretKey"
