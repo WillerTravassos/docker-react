@@ -8,7 +8,7 @@ services:
 
 # Build our image from development so that we can run tests
 before_install:
-  - docker build -t willertravassos/nodejs-react -f development.dockerfile .
+  - docker build -t willertravassos/docker-react -f development.dockerfile .
 
 # NOTE: the script below is specific for create-react-app and jest
 script:
