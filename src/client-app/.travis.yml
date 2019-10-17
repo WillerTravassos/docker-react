@@ -1,0 +1,15 @@
+# Tells Travis that we need sudo permissions to run
+sudo: required
+# language: generic
+
+# Install docker
+services:
+  - docker
+
+# Build our image from development so that we can run tests
+before_install:
+  - docker build -t willertravassos/nodejs-react -f development.dockerfile .
+
+# NOTE: the script below is specific for create-react-app and jest
+script:
+  - docker run -e CI=true willertravassos/nodejs-react npm run test
