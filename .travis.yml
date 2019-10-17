@@ -27,4 +27,4 @@ deploy:
   access_key_id:
     secure: "$AwsAccessKey"
   secret_access_key:
-    secure: "AwsSecretKey"
+    secure: "$AwsSecretKey"
